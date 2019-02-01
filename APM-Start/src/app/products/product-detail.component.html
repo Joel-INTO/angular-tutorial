@@ -58,11 +58,14 @@
 
     <div class="row mt-4">
       <div class="col-md-4">
-        <button class="btn btn-outline-secondary mr-3"
-                style="width:80px">
+        <button [routerLink]="['/products']"
+                class="btn btn-outline-secondary mr-3"
+                style="width:80px"
+                queryParamsHandling="preserve">
           <i class="fa fa-chevron-left"></i> Back
         </button>
-        <button class="btn btn-outline-primary"
+        <button [routerLink]="['/products', product.id, 'edit']"
+                class="btn btn-outline-primary"
                 style="width:80px">
           Edit
         </button>
