@@ -13,9 +13,9 @@ import { catchError, map } from 'rxjs/operators';
 export class ProductResolver implements Resolve<ProductResolved> {
     constructor(private productService: ProductService) {}
 
-    resolve (
-        route: ActivatedRouteSnapshot,
+    resolve (route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<ProductResolved> {
+
         const id = route.paramMap.get('id');
         if (isNaN(+id)) {
             const message = `Product id was not a number: ${id}`;
