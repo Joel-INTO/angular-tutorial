@@ -25,3 +25,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# Angular tutorial
+Learning how to do more complex auxiliary/secondary routing with Angular
+[A[C[C[C[C[C[C[H[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cow to do more complex auxiliary/secondary routing with Angular
+[A[D[B[D[D[A[D[D[D[B##### Source
+Deborah Kurata
