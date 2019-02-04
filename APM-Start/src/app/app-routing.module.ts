@@ -12,7 +12,9 @@ import { PageNotFoundComponent } from './page-not-found.component';
             { path: '**', component: PageNotFoundComponent }
         ])
     ],
-    exports: [RouterModule]
+    exports: [
+        RouterModule
+    ]
 })
 
 export class AppRoutingModule {}
