@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from './product';
+import { Product, ProductsResolved } from './product';
 import { ProductService } from './product.service';
 
 @Component({
@@ -23,8 +23,8 @@ export class ProductListComponent implements OnInit {
     this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
   }
 
-  filteredProducts: Product[] = [];
-  products: Product[] = [];
+  filteredProducts: Product[];
+  products: Product[];
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute) { }
@@ -33,13 +33,22 @@ export class ProductListComponent implements OnInit {
     this.listFilter = this.route.snapshot.queryParamMap.get('filterBy') || '';
     this.showImage = this.route.snapshot.queryParamMap.get('showImage') === 'true';
 
-    this.productService.getProducts().subscribe(
-      products => {
-        this.products = products;
+    this.route.data.subscribe(
+      data => {
+        const resolvedData: ProductsResolved = data['resolvedProducts'];
+        this.products = resolvedData.products;
         this.filteredProducts = this.performFilter(this.listFilter);
       },
       error => this.errorMessage = <any>error
     );
+
+    // this.productService.getProducts().subscribe(
+    //   products => {
+    //     this.products = products;
+    //     this.filteredProducts = this.performFilter(this.listFilter);
+    //   },
+    //   error => this.errorMessage = <any>error
+    // );
   }
 
   performFilter(filterBy: string): Product[] {
