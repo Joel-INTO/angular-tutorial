@@ -3,6 +3,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 
 import { Observable, of } from 'rxjs';
 
+// Model
 import { ProductResolved } from './product';
 import { ProductService } from './product.service';
 import { catchError, map } from 'rxjs/operators';
@@ -13,8 +14,7 @@ import { catchError, map } from 'rxjs/operators';
 export class ProductResolver implements Resolve<ProductResolved> {
     constructor(private productService: ProductService) {}
 
-    resolve (route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): Observable<ProductResolved> {
+    resolve (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ProductResolved> {
 
         const id = route.paramMap.get('id');
         if (isNaN(+id)) {

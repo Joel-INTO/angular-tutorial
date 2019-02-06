@@ -6,6 +6,7 @@ import { ProductDetailComponent } from './product-detail.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 
 import { ProductResolver } from './product-resolver.service';
+import { ProductsResolver } from './products-resolver.service';
 
 import { SharedModule } from '../shared/shared.module';
 import { ProductEditInfoComponent } from './product-edit/product-edit-info.component';
@@ -19,7 +20,8 @@ import { ProductEditGuard } from './product-edit/product-edit.guard';
     RouterModule.forChild([
       {
         path: '',
-        component: ProductListComponent
+        component: ProductListComponent,
+        resolve: { resolvedProducts: ProductsResolver }
       },
       {
         path: ':id',
@@ -29,7 +31,7 @@ import { ProductEditGuard } from './product-edit/product-edit.guard';
       {
         path: ':id/edit',
         component: ProductEditComponent,
-        canDeactivate: [ProductEditGuard], 
+        canDeactivate: [ProductEditGuard],
         resolve: { resolvedData: ProductResolver },
         children: [
           {
